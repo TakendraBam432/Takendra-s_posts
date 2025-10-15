@@ -45,7 +45,7 @@ main.container{
   gap: var(--gap);
 }
 @media(max-width:480px){ .grid{grid-template-columns:1fr} }
-@media(min-width:481px) and (max-width:900px){ .grid{grid-template-columns:repeat(3,1fr)} }
+@media(min-width:481px) and (max-width:900px){ .grid{grid-template-columns:repeat(2,1fr)} }
 @media(min-width:901px) and (max-width:1200px){ .grid{grid-template-columns:repeat(4,1fr)} }
 
 .card{
@@ -121,7 +121,7 @@ main.container{
 <header>Takendra Feed</header>
 <main class="container">
 <section class="grid" id="feed">
-  <div class="empty" id="emptyState">No posts yet — update posts.json in the GitHub repo.</div>
+  <div class="empty" id="emptyState">……Loading……</div>
 </section>
 </main>
 
@@ -168,8 +168,8 @@ function createCard({type,url,title}){
     if(e.target.tagName!=='VIDEO'){
       const previewWin=window.open('','_blank');
       previewWin.document.write(`<html><head><title>${title||''}</title></head><body style="margin:0;display:flex;justify-content:center;align-items:center;background:#000">`);
-      if(type==='video'){ previewWin.document.write(`<video src="${url}" controls autoplay style="max-width:100%;max-height:100%;border-radius:12px"></video>`);}
-      else{ previewWin.document.write(`<img src="${url}" style="max-width:100%;max-height:100%;object-fit:contain;border-radius:12px"/>`);}
+      if(type==='video'){ previewWin.document.write(`<video src="${url}" controls autoplay style="max-width:100%;max-height:100%;border-radius:6px"></video>`);}
+      else{ previewWin.document.write(`<img src="${url}" style="max-width:100%;max-height:100%;object-fit:contain;border-radius:6px"/>`);}
       previewWin.document.write('</body></html>'); previewWin.document.close();
     }
   });
